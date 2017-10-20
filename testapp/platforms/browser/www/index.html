@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Your app title -->
+    <title>Maynilad Water Services App</title>
+
+    <!-- This template defaults to the iOS CSS theme. To support both iOS and material design themes, see the Framework7 Tutorial at the link below:
+        http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
+     -->
+
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/my-app.css">
+	<link rel="stylesheet" href="css/framework7-icons.css">
+	
+	<style>
+	  .demo-card-header-pic .card-header {
+		height: 40vw;
+		background-size: cover;
+		background-position: center;
+	  }
+	</style>
+</head>
+
+<body>
+    <!-- Status bar overlay for full screen mode (PhoneGap) -->
+    <div class="statusbar-overlay"></div>
+
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal" style="background-color: white;">
+        <div class="content-block">
+            <img src="img/logo.png" style="height: 97px; margin-top: -37px;"/>
+			<div class="list-block">
+				<ul>
+					<li>
+						<div class="item-media"><i class = "icon f7-icons">paper_plane</i>&nbsp;<a href="#" class="list-button item-link showmap">Show Map</a></div>
+					</li>
+					<li>
+						<div class="item-media"><i class = "icon f7-icons">stopwatch</i>&nbsp;<a href="#" class="list-button item-link consumption">Consumption</a></div>
+					</li>
+					<li>
+						<div class="item-media"><i class = "icon f7-icons">document</i>&nbsp;&nbsp;<a href="#" class="list-button item-link waterbilling">Water Bill</a></div>
+					</li>
+					<li>
+						<div class="item-media"><i class = "icon f7-icons">calendar</i>&nbsp;<a href="#" class="list-button item-link datebilling">Date of Billing</a></div>
+					</li>
+					<li>
+						<div class="item-media"><i class = "icon f7-icons">phone</i>&nbsp;<a href="#" class="list-button item-link problem">Report a Problem</a></div>
+					</li>
+					<li>
+						<div class="item-media"><i class = "icon f7-icons">logout</i>&nbsp;<a href="#" class="list-button item-link logout">Logout</a></div>
+					</li>
+				</ul>
+			</div>
+        </div>
+    </div>
+
+    <!-- Views -->
+    <div class="views tabs toolbar-through">
+        <!-- Your main view, should have "view-main" class -->
+        <div id="view-1" class="view view-main tab active">
+            <!-- Top Navbar-->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+					<div class="left">
+                        <!--
+                          Right link contains only icon - additional "icon-only" class
+                          Additional "open-panel" class tells app to open panel when we click on this link
+                        -->
+                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+                    </div>
+                    <div class="center sliding">HOME</div>
+                </div>
+            </div>
+            <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages navbar-through toolbar-through">
+                <!-- Page, "data-page" contains page name -->
+                <div data-page="index-1" class="page">
+                    <!-- Scrollable page content -->
+                    <div class="page-content">
+                        <div class="content-block-title">
+                            News and Reports
+                        </div>
+						<div class="content-block">
+							<div class="card demo-card-header-pic">
+								<div style="background-image:url(img/maynilad1.jpg);text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" valign="bottom" class="card-header color-white no-border">Maynilad postpones 3-day water service interruption</div>
+								<div class="card-content">
+									<div class="card-content-inner">
+										<p class="color-gray">Published April 17, 2014 11:18pm</p>
+										<p>The Maynilad Water Services, Inc. (Maynilad) on Thursday announced the postponement of the scheduled three-day water service interruption from...</p>
+									</div>
+								</div>
+								<div class="card-footer"><a href="#" class="link">Read more</a></div>
+							</div>
+							<div class="card demo-card-header-pic">
+								<div style="background-image:url(img/maynilad2.jpg);text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" valign="bottom" class="card-header color-white no-border">Damaged Maynilad valve triggers flood in Sta. Mesa</div>
+								<div class="card-content">
+									<div class="card-content-inner">
+										<p class="color-gray">Published February 12, 2016 12:00am</p>
+										<p>About 3,000 cubic meters of water were wasted and caused flooding along Ramon Magsaysay Boulevard in Sta. Mesa, Manila after an...</p>
+									</div>
+								</div>
+								<div class="card-footer"><a href="#" class="link">Read more</a></div>
+							</div>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		<div id="view-2" class="view tab">
+
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="left">
+                        <!--
+                          Right link contains only icon - additional "icon-only" class
+                          Additional "open-panel" class tells app to open panel when we click on this link
+                        -->
+                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+                    </div>
+					<div class="center sliding">PROFILE</div>
+				</div>
+			</div>
+			<div class="pages navbar-through">
+				<div data-page="index-2" class="page">
+					<div class="page-content">
+						<div class="content-block">
+							<center><img src="img/unknown.png" /></center>
+							<div class="list-block">
+								<ul>
+									<li class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Contract Account No.</div>
+											<div class="item-after">123456789</div>
+										</div>
+									</li>
+									<li class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Account Name</div>
+											<div class="item-after">Juan de la Cruz</div>
+										</div>
+									</li>
+									<li class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Service Address</div>
+											<div class="item-after">Pasig City</div>
+										</div>
+									</li>
+									<li class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Gender</div>
+											<div class="item-after">Male</div>
+										</div>
+									</li>
+									<li class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Civil Status</div>
+											<div class="item-after">Married</div>
+										</div>
+									</li>
+									<li class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Email Address</div>
+											<div class="item-after">juan@yahoo.com</div>
+										</div>
+									</li>
+									<li class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Contact No.</div>
+											<div class="item-after">09226260210</div>
+										</div>
+									</li>
+									<li class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Birthdate</div>
+											<div class="item-after">November 01, 1990</div>
+										</div>
+									</li>
+									<li class="item-content">
+										<div class="item-inner">
+											<div class="item-title">Religion</div>
+											<div class="item-after">Roman Catholic</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<center><a href="#" class="editprof button button-big button-fill">Edit Profile</a></center><br/>
+							<center><a href="#" class="changepic button button-big button-fill">Change Profile Picture</a></center><br/>
+							<center><a href="#" class="changepass button button-big button-fill">Change Password</a></center><br/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="view-3" class="view tab">
+
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="left">
+                        <!--
+                          Right link contains only icon - additional "icon-only" class
+                          Additional "open-panel" class tells app to open panel when we click on this link
+                        -->
+                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+                    </div>
+					<div class="center sliding">ABOUT US</div>
+				</div>
+			</div>
+			<div class="pages navbar-through">
+				<div data-page="index-3" class="page">
+					<div class="page-content">
+						<div class="content-block-title">Profile</div>
+						<div class="content-block">
+							<div class="list-block accordion-list">
+								<img src="img/mains-profile.jpg" height="100%" width="100%" />
+								<ul>
+									<li class="accordion-item">
+										<a href="#" class="item-content item-link">
+											<div class="item-inner">
+												<div class="item-title">Coverage</div>
+											</div>
+										</a>
+										<div class="accordion-item-content">
+											<div class="content-block">
+												<p>Maynilad Water Services, Inc. (Maynilad) is the water and wastewater services provider for the 17 cities and municipalities that comprise the West Zone of the Metropolitan Manila area. It is an agent and contractor of the Metropolitan Waterworks and Sewerage System (MWSS).</p>
+												<p>In 1997, Maynilad was granted a 25-year exclusive concession by the Philippine Government to operate, maintain and invest in the water and sewerage systems in the cities of Manila (all but portions of San Andres and Sta. Ana), Quezon City (west of San Juan River, West Avenue, EDSA, Congressional, Mindanao Avenue, the northern part starting from the Districts of Holy Spirit and Batasan Hills), Makati (west of South Super Highway), Caloocan, Pasay, Parañaque, Las Pinas, Muntinlupa, Valenzuela, Navotas and Malabon, all in Metro Manila; the cities of Cavite, Bacoor and Imus, and the towns of Kawit, Noveleta and Rosario, all in the Province of Cavite.</p>
+												<p>The concession term was extended by 15 years in 2010, after Maynilad was required by the Philippine Government to increase and accelerate its wastewater investments. The term extension was reviewed and approved by the MWSS and Department of Finance.</p>
+											</div>
+										</div>
+									</li>
+									<li class="accordion-item">
+										<a href="#" class="item-content item-link">
+											<div class="item-inner">
+												<div class="item-title">Vision, Mission and Values</div>
+											</div>
+										</a>
+										<div class="accordion-item-content">
+											<div class="content-block">
+												<p>More than a basic service provider, Maynilad is a company that nurtures talent, delivers results and enables progress. Everything that we do is the result of our firm commitment to our Vision, Mission and Values.</p>
+												<p><strong>Vision: </strong>We are the leading water solutions company in the Philippines with a strong presence across Asia.</p>
+												<p><strong>Mission: </strong>We provide safe, affordable and sustainable water solutions that enable those we serve to lead healthier, more comfortable lives.</p>
+												<p><strong>Corporate Values: </strong></p>
+												<p><strong>Honesty and Integrity: </strong> We deal with our stakeholders with honesty and integrity. We will always do what is right and fair for the sake of our customers, shareholders and the environment.</p>
+												<p><strong>Customer Service: </strong>We consider our customers as our growth partners. Only by providing them with affordable, high-quality water solutions can we continue generating value for our company and shareholders.</p>
+												<p><strong>Entrepreneurship: </strong>We encourage creative thinking and deliberate execution. We expect our people to manage our company's resources with a strong sense of initiative, ownership and accountability in order to balance the needs of our customers with those of our other stakeholders.</p>
+												<p><strong>Commitment to Excellence: </strong>We view excellence as a means and not an end. To maintain our operational efficiency and industry leadership, we push our people to excel by being diligent and innovative in their work.</p>
+												<p><strong>Teamwork: </strong>We value our people and consider their success as our own. This is why we provide them with the support, responsibilities and opportunities that will allow them to develop individually and with the company.</p>
+												<p><strong>Love for Country: </strong>We actively partner with the public sector so that we can provide even more Filipinos with water solutions that will spur national development and secure the environment.</p>
+											</div>
+										</div>
+									</li>
+									<li class="accordion-item">
+										<a href="#" class="item-content item-link">
+											<div class="item-inner">
+												<div class="item-title">History and Transformation</div>
+											</div>
+										</a>
+										<div class="accordion-item-content">
+											<div class="content-block">
+												<p>Maynilad Water Services, Inc. (Maynilad) was formed in 1997, after the consortium of Benpres Holdings Corporation and Suez Lyonnaise de Eaux won the exclusive right to provide water and wastewater services in the West Zone of Metropolitan Manila.</p>
+												<p>Before then, the Metropolitan Waterworks and Sewerage System (MWSS) was in charge of providing these services.</p>
+												<p><strong>A Difficult Start</strong></p>
+												<p>Towards the end of 1997, Maynilad struggled to meet its service and financial obligations because of the Asian financial crisis and El Nino phenomenon. These events led to a string of financial, legal and regulatory disputes between Maynilad and MWSS.</p>
+												<p>In 2005, Benpres and Suez ceded management and control of Maynilad to MWSS. A competitive bidding was done by the Philippine Government the following year to re-privatize Maynilad.</p>
+												<p><strong>Change in Ownership</strong></p>
+												<p>DMCI-MPIC Water Company, a joint venture between Metro Pacific Investments Corporation (MPIC) and DMCI Holdings, Inc. (DMCI), won the competitive bidding and acquired 83.96% of Maynilad's shares.</p>
+												<p>On January 24, 2007, the new owners took over Maynilad and launched an aggressive five-year investment program to rehabilitate the company and its operations.</p>
+												<p>In 2013, Marubeni Corporation of Japan acquired a 20% stake in DMCI-MPIC Water Company and became a strategic partner of the Metro Pacific-DMCI consortium.</p>
+												<p><strong>Transforming Services, Improving Lives</strong></p>
+												<p>Since its re-privatization, Maynilad has spent over P47 billion to improve and expand its water services. As a result, over 9 million people in Valenzuela City down to Cavite City are now enjoying safe, reliable water supply.</p>
+												<p>In the coming years, Maynilad will focus on accelerating its wastewater investments, while ensuring the water supply of its current and future customers.</p>
+											</div>
+										</div>
+									</li>
+									<li class="accordion-item">
+										<a href="#" class="item-content item-link">
+											<div class="item-inner">
+												<div class="item-title">Milestones</div>
+											</div>
+										</a>
+										<div class="accordion-item-content">
+											<div class="content-block">
+												<p>Under Construction</p>
+											</div>
+										</div>
+									</li>
+									<li class="accordion-item">
+										<a href="#" class="item-content item-link">
+											<div class="item-inner">
+												<div class="item-title">Corporate Social Responsibility</div>
+											</div>
+										</a>
+										<div class="accordion-item-content">
+											<div class="content-block">
+												<p>Under Construction</p>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="content-block-title">Services</div>
+						<div class="content-block">
+							<div class="list-block accordion-list">
+								<img src="img/mains-services.jpg" height="100%" width="100%" />
+								<ul>
+									<li class="accordion-item">
+										<a href="#" class="item-content item-link">
+											<div class="item-inner">
+												<div class="item-title">Business Solutions and Services</div>
+											</div>
+										</a>
+										<div class="accordion-item-content">
+											<div class="content-block">
+												<p><strong>Water Supply and Facilities Management</strong></p>
+												<p><strong>Water Source Analysis </strong>assesses the capability of a water body—in terms of quality and quantity—to supply water to a given area. It also determines the treatment process needed to make raw water suitable for specific uses.</p>
+												<p><strong>Hydraulic Model Building and Calibration </strong>uses simulation software to design new water systems and to optimize existing water networks.</p>
+												<p><strong>Supply and Pressure Management </strong>optimizes pressure in the distribution system using pressure regulating valves and/or pumping stations.</p>
+												<p><strong>Project Management </strong>includes the planning, design, construction, commissioning, and process-proving of water facilities. These services may be availed individually or as a complete package.</p>
+												<p><strong>Operation and Maintenance of Water Treatment Plants </strong>involves handling a facility’s day-to-day activities to ensure optimal water treatment. Activities covered include sample collection, selection and handling of appropriate chemicals, preventive and corrective maintenance of electromechanical equipment, and site caretaking.</p>
+												
+												<p><strong>Water Loss Management</strong></p>
+												<p><strong>Rapid Assessment </strong>refers to the study that determines the causes and sources of water loss, and identifies corresponding solutions.</p>
+												<p><strong>Leak Detection and Pipe Inspection Services </strong>use advanced equipment to locate non-visible leaks in the pipe lines, thus reducing financial losses linked to water loss.</p>
+												<p><strong>Network Maintenance Services </strong>involve the implementation of water loss reduction activities—such as leak repair, valve replacement, installation of new connections, and replacement of water meters.</p>
+												<p><strong>Meter Services </strong>include assessment, selection, testing, and calibration of meters to ensure accurate and reliable measurement of water consumption.</p>
+												<p><strong>Pipe Rehabilitation Services </strong>include the design and/or implementation of pipe replacement projects to eliminate deteriorated segments of the pipe network.</p>
+											
+												<p><strong>Geographic Information System Development</strong></p>
+												<p><strong>Design of GIS System Architecture </strong>involves the establishment of a database and data model of the Geographic Information System (GIS) to allow the collection and storage of location information with corresponding attributes, enabling multiple users to easily analyze and interpret business data.</p>
+												<p><strong>Field Surveying and Mapping </strong>measures and pinpoints the geographical locations of assets for accurate map representation.</p>
+												<p><strong>Digitization of Assets </strong>converts geographic data, from a hard copy or scanned image, to vector data. GIS-based maps assist in understanding the attributes, changes, patterns and relationships of geographic features.</p>
+												
+												<p><strong>Wastewater Management</strong></p>
+												<p><strong>Project Management </strong>includes the planning, design, construction, commissioning, and process-proving of wastewater facilities. These services may be availed individually or as a complete package.</p>
+												<p><strong>Operation and Maintenance of Sewage Treatment Plants </strong>involves handling a facility’s day-to-day activities. This includes sample collection, selection and handling of appropriate chemicals, preventive and corrective maintenance of electromechanical equipment, and site caretaking.</p>
+												<p><strong>Septage Management Program </strong>entails the development of a sanitation program for large areas. This service includes planning, determination of ideal locations for treatment facilities, design and construction of septage treatment plant (SpTP) and conveyance, development of operational procedures, determination of effective number of desludging trucks, and operation and maintenance of SpTP and desludging trucks.</p>
+											</div>
+										</div>
+									</li>
+									<li class="accordion-item">
+										<a href="#" class="item-content item-link">
+											<div class="item-inner">
+												<div class="item-title">Water</div>
+											</div>
+										</a>
+										<div class="accordion-item-content">
+											<div class="content-block">
+												<p>We provide our customers with piped-in water supply that meets the Philippine National Standards for Drinking Water of the Department of Health.  This means our water is safe and fit for drinking, bathing, cooking and other household activities.</p>
+												<p>Our goal is to provide the entire West Zone with 24-hour supply at a minimum pressure of 7 psi (pounds per square inch).</p>
+											</div>
+										</div>
+									</li>
+									<li class="accordion-item">
+										<a href="#" class="item-content item-link">
+											<div class="item-inner">
+												<div class="item-title">Sewerage</div>
+											</div>
+										</a>
+										<div class="accordion-item-content">
+											<div class="content-block">
+												<p>Aside from delivering potable water,  Maynilad provides sewerage services to its customers.  Currently, only residents and establishments in Tondo, Sampaloc, South Manila, Malabon, Navotas, Caloocan, Projects 7 and 8 in Quezon City, Magallanes Village in Makati and parts of Muntinlupa may connect to Maynilad’s sewerage system.</p>
+											</div>
+										</div>
+									</li>
+									<li class="accordion-item">
+										<a href="#" class="item-content item-link">
+											<div class="item-inner">
+												<div class="item-title">Septage</div>
+											</div>
+										</a>
+										<div class="accordion-item-content">
+											<div class="content-block">
+												<p>Customers  in areas not covered by Maynilad’s sewerage network dispose of their wastewater through their own septic tanks or sewerage treatment facilities (for big commercial and industrial customers).</p>
+												<p>Residential and semi-business customers who are located outside sewered  areas and maintain their own septic tanks may avail of Maynilad’s septic tank cleaning (desludging).</p>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="content-block-title">Facilities</div>
+						<div class="content-block">
+							<div class="list-block accordion-list">
+								<img src="img/mains-plants.jpg" height="100%" width="100%" />
+								<ul>
+									<li class="accordion-item">
+										<a href="#" class="item-content item-link">
+											<div class="item-inner">
+												<div class="item-title">Water Treatment</div>
+											</div>
+										</a>
+										<div class="accordion-item-content">
+											<div class="content-block">
+												<p>Maynilad maintains and operates three world-class water treatment plants.</p>
+												<p>La Mesa Treatment Plant 1 is a conventional-type plant with a maximum design capacity of 1500 million liters per day (MLD). It was designed by American company Camp, Dresser and Mckee.</p>
+												<p>La Mesa Treatment Plant 2 is a pulsator-type plant that has a design capacity of 900 MLD. It was designed by Degrémont, a French company recognized as a world specialist in water treatment plants.</p>
+												<p>Both treatment plants are ISO 9001:2000-certified which means that Maynilad’s water treatment process meets global standards for Quality Management.</p>
+												<p>Putatan Treatment Plant is the largest membrane-based water treatment plant in the Philippines, and is also the first of its kind in the country to use large-scale microfiltration and reverse osmosis.</p>
+												<p>All three water treatment facilities produce water that meets the Philippine National Standards for Drinking Water (PNSDW) of the Department of Health (DOH).</p>
+											</div>
+										</div>
+									</li>
+									<li class="accordion-item">
+										<a href="#" class="item-content item-link">
+											<div class="item-inner">
+												<div class="item-title">Water Distribution</div>
+											</div>
+										</a>
+										<div class="accordion-item-content">
+											<div class="content-block">
+												<p>Maynilad maintains and operates some 7,500 kilometers of primary, secondary and tertiary pipelines. If laid end to end from Manila, these pipes can reach Qatar in the Middle East.</p>
+												<p>The company also has 24 pumping stations and 23 water reservoirs across its service area. Its reservoirs have a total holding capacity of over 500 million liters of potable water.</p>
+												<p>The Maynilad water distribution system is the longest ISO-certified facility of its kind in the Philippines. It stretches from North Caloocan to Cavite Province and delivers over 2,000 million liters of potable water per day to over 9 million customers.</p>
+											</div>
+										</div>
+									</li>
+									<li class="accordion-item">
+										<a href="#" class="item-content item-link">
+											<div class="item-inner">
+												<div class="item-title">Wastewater Treatment</div>
+											</div>
+										</a>
+										<div class="accordion-item-content">
+											<div class="content-block">
+												<p>Maynilad maintains and operates 20 wastewater treatment plants that process wastewater and sludge collected from customers. This is to prevent the pollution of waterways and bodies of water. </p>
+												<p>The company’s Dagat-Dagatan Sewage and Septage Treatment Plant in Caloocan is the first facility of its kind in the Asia-Pacific Region to attain triple international standard accreditations on Quality Management (ISO 9001:2008) and Environmental Management (ISO 14001:2004) in January 2007, and Occupational Safety and Health Management (OHSAS 18001:2007).</p>
+											</div>
+										</div>
+									</li>
+									<li class="accordion-item">
+										<a href="#" class="item-content item-link">
+											<div class="item-inner">
+												<div class="item-title">Wasterwater Collection and Conveyance</div>
+											</div>
+										</a>
+										<div class="accordion-item-content">
+											<div class="content-block">
+												<p>Maynilad maintains and operates 19 pump stations, 12 lift stations, and over 500 kilometers of sewer lines to enable the efficient collection and conveyance of wastewater from the customers to the treatment facilities to the receiving bodies of water.</p>
+												<p>The company’s Tondo Sewage Pump facility holds international standard accreditations on Quality, Environmental, and Occupational Safety and Health Management.</p>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="view-4" class="view tab">
+
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="left">
+                        <!--
+                          Right link contains only icon - additional "icon-only" class
+                          Additional "open-panel" class tells app to open panel when we click on this link
+                        -->
+                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+                    </div>
+					<div class="center sliding">SETTINGS</div>
+				</div>
+			</div>
+			<div class="pages navbar-through">
+				<div data-page="index-4" class="page">
+					<div class="page-content">
+						<div class="content-block">
+							<p>This is still under construction</p>
+							<div class="list-block">
+								<ul>
+									<li>
+										<label class="label-checkbox item-content">
+											<!-- Checked by default -->
+											<input type="checkbox" name="my-notification" value="" checked="checked" />
+											<div class="item-media">
+												<i class="icon icon-form-checkbox"></i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title">Enable Notification</div>
+											</div>
+										</label>
+									</li>
+									<li>
+										<label class="label-checkbox item-content">
+											<!-- Checked by default -->
+											<input type="checkbox" name="my-gps" value="" checked />
+											<div class="item-media">
+												<i class="icon icon-form-checkbox"></i>
+											</div>
+											<div class="item-inner">
+												<div class="item-title">Enable GPS</div>
+											</div>
+									  </label>
+									</li>
+								</ul>
+							</div>    
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Bottom Toolbar-->
+		<div class="toolbar tabbar tabbar-labels">
+			<div class="toolbar-inner">
+				<a href="#view-1" class="tab-link active"> <i class="icon f7-icons">home_fill</i><span class="tabbar-label">Home</span></a>
+				<a href="#view-2" class="tab-link"><i class="icon f7-icons">person_fill</i><span class="tabbar-label">Profile</span></a>
+				<a href="#view-3" class="tab-link"><i class="icon f7-icons">info_fill</i><!--<i class="icon tabbar-demo-icon-1"><span class="badge bg-red">4</span>--></i><span class="tabbar-label">About Us</span></a>
+				<a href="#view-4" class="tab-link"><i class="icon f7-icons">settings_fill</i><span class="tabbar-label">Settings</span></a>
+			</div>
+		</div>
+    </div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+    <script type="text/javascript" src="js/my-app.js"></script>
+	<script>
+		var myApp = new Framework7();
+		var $$ = Dom7;
+		
+		//- With callbacks on click
+		$$('.logout').on('click', function () {
+			var buttons = [
+				{
+					text: 'Do you want to logout?',
+					label: true
+				},
+				{
+					text: 'Yes',
+					onClick: function () {
+						myApp.alert('Under Construction');
+					}
+				},
+				{
+					text: 'No',
+					color: 'red'
+				},
+			];
+			myApp.actions(buttons);
+		});   
+		
+		//- With callbacks on click
+		$$('.problem, .consumption, .datebilling, .waterbilling, .showmap, .changepic, .changepass, .editprof').on('click', function () {
+			myApp.alert('Under Construction');
+		});   
+	</script>
+</body>
+
+</html>
